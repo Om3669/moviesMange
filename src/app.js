@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 const notFound = require("./errors/notFound");
 const errorHandler = require("./errors/errorHandler");
+const path = require("path");
 
 const moviesRouter = require("./movies/movies.router");
 const theatersRouter = require("./theaters/theaters.router");
@@ -20,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'frontEnd')));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'frontEnd', 'index.html'));
   });
-  
+
 app.use("/movies", moviesRouter);
 app.use("/theaters", theatersRouter);
 app.use("/reviews", reviewsRouter);
