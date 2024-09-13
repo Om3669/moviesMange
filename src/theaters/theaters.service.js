@@ -26,6 +26,7 @@ async function list(movieId = undefined) {
     .where({ "movies.movie_id" : movieId })
     .select("*","theaters.created_at as created_At ","theaters.updated_at as updated_At","movies_theaters.theater_id as theater_Id")
     .then(reduceMovies);
+
   }else {
     return db("theaters")
     .join(
