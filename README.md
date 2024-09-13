@@ -15,4 +15,4 @@ This is a back-end application for managing movies, theaters, and reviews. It is
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com:Om3669/moviesMange.git
+   git clone https://github.com:Om3669/moviesMange.gitç
