@@ -13,14 +13,15 @@ const cors = require('cors');
 
 // TODO: Add your code here
 ///movies
+app.use(express.static(path.join(__dirname, '../frontEnd')));
+
 app.use(express.json());
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, 'frontEnd')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontEnd', 'index.html'));
-  });
+    res.sendFile(path.join(__dirname, '../frontEnd', 'index.html'));
+});
 
 app.use("/movies", moviesRouter);
 app.use("/theaters", theatersRouter);
