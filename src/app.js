@@ -13,15 +13,19 @@ const cors = require('cors');
 
 // TODO: Add your code here
 ///movies
-app.use(express.static(path.join(__dirname, '../frontEnd')));
+// Serve static files from the 'src/frontEnd' directory
+app.use(express.static(path.join(__dirname, 'frontEnd')));
+
+// Serve index.html for the root route
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontEnd', 'index.html'));
+  });
 
 app.use(express.json());
 app.use(cors());
 
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontEnd', 'index.html'));
-});
+
 
 app.use("/movies", moviesRouter);
 app.use("/theaters", theatersRouter);
